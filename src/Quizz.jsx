@@ -21,6 +21,7 @@ function Quizz() {
           </section>
         </section>
       )}
+      <Loader />
     </main>
   )
 }
