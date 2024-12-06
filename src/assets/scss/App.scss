@@ -9,7 +9,7 @@ main {
   height: 100vh !important;
   background: linear-gradient(to right bottom, rgb(80, 212, 139), rgb(0, 255, 255));
   display: grid;
-  place-items: center;
+  // place-items: center;
   .title {
     background: linear-gradient(to right, #732ebd, #c698fa);
     background-clip: text;
@@ -18,22 +18,23 @@ main {
     font-size: 80px;
     font-weight: 800;
     text-align: center;
-    // text-shadow: 1px 5px -4px  red;
+    margin: 0;
   }
   .quizz-container {
     width: 800px;
     height: 500px;
-    background: whitesmoke;
+    // background: whitesmoke;
     border-radius: 10px;
-    display: flex;
-    background: #cbf4ed;
+    // display: flex;
+    // background: #cbf4ed;
     overflow: hidden;
     position: relative;
+    margin: auto;
     &:nth-child(1) {
       border: 1px solid yellow;
     }
     .quiz {
-      display: flex;
+      // display: flex;
       position: absolute;
       top: 0;
       width: 100%;
@@ -43,7 +44,7 @@ main {
         padding: 20px;
         width: 100%;
         text-align: center;
-        background: #009d82;
+        // background: #009d82;
         h2 {
           background: linear-gradient(to right, #d7baf7, #c592ff);
           background-clip: text;
