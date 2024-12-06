@@ -6,7 +6,6 @@ function QuizzQuestion() {
         <div className='question'>
           <p>Name the movie that matches the following plot summary: An insurance salesman discovers his whole life is actually a reality TV show.</p>
         </div>
-        <p className='quesNumb'>1 / 10</p>
       </section>
       <section className='answers'>
         {/* <!-- div.btns --> */}
