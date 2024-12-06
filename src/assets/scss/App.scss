@@ -7,7 +7,7 @@
 main {
   width: 100vw !important;
   height: 100vh !important;
-  background: linear-gradient(to right bottom, rgb(80, 212, 139), rgb(0, 255, 255));
+  background: linear-gradient(to right bottom, rgb(43, 134, 84), rgb(25, 223, 223));
   display: grid;
   // place-items: center;
   .title {
@@ -22,12 +22,12 @@ main {
   }
   .quizz-container {
     width: 800px;
-    height: 500px;
+    // height: 500px;
     // background: whitesmoke;
     border-radius: 10px;
     // display: flex;
     // background: #cbf4ed;
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     margin: auto;
     &:nth-child(1) {
@@ -40,7 +40,9 @@ main {
       width: 100%;
       height: 100%;
       .questions {
-        color: azure;
+        color: #000;
+        font-size: 1.4rem;
+        font-weight: 500;
         padding: 20px;
         width: 100%;
         text-align: center;
@@ -73,7 +75,7 @@ main {
 
           .btn {
             background: #74dde2;
-            color: white;
+            color: #000;
             display: flex;
             align-items: center;
             width: 100%;
