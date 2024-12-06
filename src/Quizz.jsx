@@ -2,6 +2,7 @@ import { useContext } from "react"
 import QuizzQuestion from "./QuizzQuestion"
 import { Context } from "./Context"
 import Welcome from "./Welcome"
+import Loader from "./Loader"
 function Quizz() {
   const {
     state: { status, questions, answers },
@@ -10,14 +11,16 @@ function Quizz() {
   console.log(status, questions, answers)
   return (
     <main>
-      {}
-      <section>
-        {}
-        <h1 className='title'>Quizzical</h1>
-        <section className='quizz-container'>
-          <QuizzQuestion dispatch={dispatch} />
+      {status === "ready" && <Welcome />}
+      {status === "load" && <Loader />}
+      {status === "active" && (
+        <section>
+          <h1 className='title'>Quizzical</h1>
+          <section className='quizz-container'>
+            <QuizzQuestion dispatch={dispatch} />
+          </section>
         </section>
-      </section>
+      )}
     </main>
   )
 }

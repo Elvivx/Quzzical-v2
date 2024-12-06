@@ -1,9 +1,13 @@
+import { useContext } from "react"
+import { Context } from "./Context"
 function Welcome() {
+  const { dispatch } = useContext(Context)
   return (
     <div className='welcome'>
       <h1>Welcome Quizzical!</h1>
       <p>Start your quiz journey here!</p>
-      <button>{`Let's Start`}</button>
+      <p>X questions are ready for you to answer!</p>
+      <button onClick={() => dispatch({ type: "active" })}>{`Let's Start`}</button>
     </div>
   )
 }

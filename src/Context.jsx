@@ -6,7 +6,7 @@ export const QuizzContext = ({ children }) => {
     questions: [],
     answers: [],
     currentQuestion: 0,
-    status: "load",
+    status: "ready",
   }
   const [state, dispatch] = useReducer(QuizzReducer, initialState)
   const contextVals = {
