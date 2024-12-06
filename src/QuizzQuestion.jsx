@@ -1,6 +1,6 @@
 function QuizzQuestion() {
   return (
-    <div className='quiz hide' data-indexs='1'>
+    <div className='quiz ' data-indexs='1'>
       <section className='questions'>
         <h2>Question</h2>
         <div className='question'>
@@ -40,9 +40,7 @@ function QuizzQuestion() {
           </button>
         </div>
         <section className='nav'>
-          <button className='prev' style='display: block;'>
-            Prev
-          </button>
+          <button className='prev'>Prev</button>
           <button className='retake hide'> Take Another Quiz </button>
           <button className='next'>Next</button>
         </section>
