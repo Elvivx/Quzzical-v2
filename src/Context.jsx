@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react"
-import QuizzReducer from "./assets/scss/QuizzReducer"
+import QuizzReducer from "./QuizzReducer"
 export const Context = createContext()
-export default function Context() {
+export const QuizzContext = ({ children }) => {
   const initialState = {
     questions: [],
     answers: [],
@@ -12,5 +12,6 @@ export default function Context() {
     state,
     dispatch,
   }
+  console.log(state)
   return <Context.Provider value={contextVals}>{children}</Context.Provider>
 }

@@ -1,4 +1,4 @@
-function QuizzQuestion() {
+function QuizzQuestion({ dispatch }) {
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
@@ -10,7 +10,9 @@ function QuizzQuestion() {
       <section className='answers'>
         {/* <!-- div.btns --> */}
         <div className='answers-options'>
-          <button className='btn'>The Truman Show</button>
+          <button className='btn' onClick={() => dispatch({ type: "ans" })}>
+            The Truman Show
+          </button>
 
           <button className='btn'>
             <input type='radio' name='6.508422101775713' value='The Matrix' id='rad' />
