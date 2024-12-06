@@ -1,3 +1,4 @@
+import Time from "./Time"
 function QuizzQuestion({ dispatch }) {
   return (
     <div className='quiz ' data-indexs='1'>
@@ -38,7 +39,7 @@ function QuizzQuestion({ dispatch }) {
         <section className='nav'>
           {/* <button className='prev'>Prev</button>
           <button className='retake hide'> Take Another Quiz </button> */}
-          <div className='time'>10:34</div>
+          <Time />
           <button className='next' onClick={() => dispatch({ type: "next" })}>
             Next
           </button>
