@@ -10,12 +10,7 @@ function QuizzQuestion() {
       <section className='answers'>
         {/* <!-- div.btns --> */}
         <div className='answers-options'>
-          <button className='btn'>
-            <input type='radio' name='6.508422101775713' value='The Truman Show' id='rad' />
-            <label htmlFor='6.508422101775713' value='The Truman Show'>
-              The Truman Show
-            </label>
-          </button>
+          <button className='btn'>The Truman Show</button>
 
           <button className='btn'>
             <input type='radio' name='6.508422101775713' value='The Matrix' id='rad' />
@@ -39,8 +34,9 @@ function QuizzQuestion() {
           </button>
         </div>
         <section className='nav'>
-          <button className='prev'>Prev</button>
-          <button className='retake hide'> Take Another Quiz </button>
+          {/* <button className='prev'>Prev</button>
+          <button className='retake hide'> Take Another Quiz </button> */}
+          <div className='time'>10:34</div>
           <button className='next'>Next</button>
         </section>
       </section>
