@@ -7,7 +7,7 @@ export const QuizzContext = ({ children }) => {
     questions: [],
     answers: [],
     currentQuestion: 0,
-    status: "ready",
+    status: "load",
   }
   useEffect(() => {
     const get = async () => {

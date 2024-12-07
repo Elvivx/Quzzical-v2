@@ -21,7 +21,7 @@ function Quizz() {
           </section>
         </section>
       )}
-      <Loader />
+      {/* <Loader /> */}
     </main>
   )
 }
