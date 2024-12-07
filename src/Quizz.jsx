@@ -10,8 +10,8 @@ function Quizz() {
     state: { status, questions, chosenAnswer, currentQuestion, score, error },
     dispatch,
   } = useContext(Context)
-  console.log(status, questions, chosenAnswer, currentQuestion, score, error)
-  console.log(chosenAnswer)
+  //   console.log(status, questions, chosenAnswer, currentQuestion, score, error)
+  //   console.log(chosenAnswer)
   return (
     <main>
       {status === "ready" && <Welcome />}

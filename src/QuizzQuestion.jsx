@@ -2,13 +2,18 @@ import { useState } from "react"
 import Time from "./Time"
 
 function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
-  const options = [...question.incorrectAnswers, question.correctAnswer]
+  const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
   //   dispatch({type: 'ans', payload: ''})
 
   const [selectedOption, setSelectedOption] = useState("")
-
+  console.log(correctAnswer == chosenAnswer)
+  const next = () => {
+    // console.log(selectedOption, chosenAnswer)
+    correctAnswer == chosenAnswer && dispatch({ type: "score" })
+    dispatch({ type: "next" })
+  }
   const getClassName = (option) => {
     if (selectedOption === "") return "" // No class if nothing is selected
 
@@ -20,8 +25,6 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
 
     e.target.style = "border: 4px solid #c592ff"
     setSelectedOption(selected)
-    console.log(chosenAnswer == correctAnswer)
-    console.log(chosenAnswer)
   }
   return (
     <div className='quiz ' data-indexs='1'>
@@ -51,7 +54,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
           {/* <button className='prev'>Prev</button> */}
           {/* <button className='retake hide'> Take Another Quiz </button>  */}
           <Time />
-          <button className='next' onClick={() => dispatch({ type: "next" })} disabled={!selectedOption}>
+          <button className='next' onClick={next} disabled={!selectedOption}>
             Next
           </button>
         </section>
