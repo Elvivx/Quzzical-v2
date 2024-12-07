@@ -5,11 +5,12 @@ import axios from "axios"
 export const Context = createContext()
 const initialState = {
   questions: [],
-  answer: "",
   currentQuestion: 0,
   score: 0,
   status: "load",
   error: "",
+  chosenAnswer: null,
+  //   answer: "we",
 }
 export const QuizzContext = ({ children }) => {
   const [state, dispatch] = useReducer(QuizzReducer, initialState)

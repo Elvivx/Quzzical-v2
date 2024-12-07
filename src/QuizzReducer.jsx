@@ -12,10 +12,12 @@ export default (state, action) => {
       return { ...state, status: "active" }
     case "next":
       return { ...state, currentQuestion: state.currentQuestion + 1 }
-    case "answer ":
-      return { ...state, answer: action.payload }
+    // case "ans ":
+    //   return { ...state, chosenAnswer: action.payload, status: "load" }
     case "score":
       return { ...state, score: state.score + 1 }
+    case "ans":
+      return { ...state, chosenAnswer: action.payload }
     default:
       return state
   }

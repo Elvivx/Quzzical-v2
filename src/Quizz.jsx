@@ -7,10 +7,11 @@ import Error from "./Error"
 
 function Quizz() {
   const {
-    state: { status, questions, answer, currentQuestion, score, error },
+    state: { status, questions, chosenAnswer, currentQuestion, score, error },
     dispatch,
   } = useContext(Context)
-  console.log(status, questions, answer, currentQuestion, score, error)
+  //   console.log(status, questions, chosenAnswer, currentQuestion, score, error, bod1
+  console.log(chosenAnswer)
   return (
     <main>
       {status === "ready" && <Welcome />}
@@ -21,7 +22,7 @@ function Quizz() {
           <h1 className='title'>Quizzical</h1>
           <section className='quizz-container'>
             {questions[currentQuestion].map((question) => (
-              <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} answer={answer} />
+              <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} />
             ))}
           </section>
         </section>
