@@ -1,12 +1,11 @@
 import Time from "./Time"
-function QuizzQuestion({ dispatch, questions }) {
-  console.log(questions)
+function QuizzQuestion({ dispatch, question }) {
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
         <h2>Question</h2>
         <div className='question'>
-          <p>Name the movie that matches the following plot summary: An insurance salesman discovers his whole life is actually a reality TV show.</p>
+          <p>{question.question.text}</p>
         </div>
       </section>
       <section className='answers'>
@@ -37,14 +36,6 @@ function QuizzQuestion({ dispatch, questions }) {
             </label>
           </button>
         </div>
-        <section className='nav'>
-          {/* <button className='prev'>Prev</button>
-          <button className='retake hide'> Take Another Quiz </button> */}
-          <Time />
-          <button className='next' onClick={() => dispatch({ type: "next" })}>
-            Next
-          </button>
-        </section>
       </section>
     </div>
   )

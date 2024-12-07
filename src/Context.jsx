@@ -14,7 +14,8 @@ export const QuizzContext = ({ children }) => {
   useEffect(() => {
     const get = async () => {
       const data = await axios.get("https://the-trivia-api.com/v2/questions")
-      dispatch({ type: "data", payload: data.data })
+      const quest = data.data.map((ques) => [ques])
+      dispatch({ type: "data", payload: quest })
     }
     get()
   }, [])
