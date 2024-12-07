@@ -10,8 +10,8 @@ export default (state, action) => {
       return { ...state, status: "active" }
     case "next":
       return { ...state, currentQuestion: state.currentQuestion + 1 }
-    case "answer":
-      return "shit"
+    case "answer ":
+      return { ...state, answer: action.payload }
     case "score":
       return { ...state, score: state.score + 1 }
     default:

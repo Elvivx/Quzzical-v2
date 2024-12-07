@@ -5,7 +5,7 @@ import axios from "axios"
 export const Context = createContext()
 const initialState = {
   questions: [],
-  answers: [],
+  answer: "",
   currentQuestion: 0,
   score: 0,
   status: "load",

@@ -1,16 +1,23 @@
 import Time from "./Time"
 import { useState } from "react"
-function QuizzQuestion({ dispatch, question }) {
+function QuizzQuestion({ dispatch, question, score, answer }) {
   const options = question.incorrectAnswers.concat([question.correctAnswer])
-  const answer = question.correctAnswer
-  const select = () => {
-    dispatch({ type: "SELECT", payload: answer })
-  }
+  const correctAnswer = question.correctAnswer
+  //   const select = (e) => {
+  //     // dispatch({ type: "SELECT", payload: answer })
+  //     e.target.value === answer ? dispatch({ type: "answer" }) value)
+  //   }
   console.log(options)
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
         <h2>Question</h2>
+        <div className='score'>
+          <div className='bar'>
+            <div className='progress'></div>
+          </div>
+          <h3>{score}/10</h3>
+        </div>
         <div className='question'>
           <p>{question.question.text}</p>
         </div>
@@ -19,9 +26,11 @@ function QuizzQuestion({ dispatch, question }) {
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          <button className='btn' onClick={() => dispatch({ type: "ans", payload: e.target.value })}>
-            The Truman Show
-          </button>
+          {options.map((option) => (
+            <button className={answer == correctAnswer ? "btn correct" : "btn .wrong"} onClick={(e) => dispatch({ type: "answer", payload: e.target.value })} key={option} value={option}>
+              {option}
+            </button>
+          ))}
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
