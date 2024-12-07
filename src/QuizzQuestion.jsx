@@ -46,15 +46,17 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, t
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          {options.map((option) => (
-            <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
-              {option}
-            </button>
-          ))}
+          {options
+            .sort(() => Math.random() - 0.5)
+            .map((option) => (
+              <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
+                {option}
+              </button>
+            ))}
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
-          <Time time={time} dispatch={dispatch} />
+          <Time />
           {questionNum == 10 ? (
             <button className='retake' onClick={() => location.reload()}>
               Take Another Quiz
