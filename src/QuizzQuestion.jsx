@@ -1,27 +1,16 @@
-import { useState, useRef } from "react"
+import { useState } from "react"
 import Time from "./Time"
 
 function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
   const options = [...question.incorrectAnswers, question.correctAnswer]
   const correctAnswer = question.correctAnswer
+  console.log(chosenAnswer)
+  //   dispatch({type: 'ans', payload: ''})
 
-  //   const [classNames, setClassNames] = useState("")
-  //   console.log(chosenAnswer)
-  //   const className = () => {
-  //     if (chosenAnswer == correctAnswer) {
-  //       setClassNames("correct")
-  //     } else {
-  //       setClassNames("wrong")
-  //     }
-  //   }
   const [selectedOption, setSelectedOption] = useState("")
 
   const getClassName = (option) => {
     if (selectedOption === "") return "" // No class if nothing is selected
-    // if (option === correctAnswer && selectedOption === correctAnswer) return "correct" // Correct
-    // if (option === correctAnswer && selectedOption !== correctAnswer) return "wrong" // Wrong
-    // if (option !== correctAnswer && selectedOption === correctAnswer) return "wrong" // Wrong
-    // if (option !== correctAnswer && selectedOption !== correctAnswer) return "wrong" // Wrong
 
     return option === correctAnswer ? "correct" : option === selectedOption ? "wrong" : ""
   }
@@ -32,6 +21,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
     e.target.style = "border: 4px solid #c592ff"
     setSelectedOption(selected)
     console.log(chosenAnswer == correctAnswer)
+    console.log(chosenAnswer)
   }
   return (
     <div className='quiz ' data-indexs='1'>
