@@ -7,7 +7,7 @@ function QuizzQuestion({ dispatch, question, score, answer }) {
   //     // dispatch({ type: "SELECT", payload: answer })
   //     e.target.value === answer ? dispatch({ type: "answer" }) value)
   //   }
-  console.log(options, answer)
+  //   console.log(options, answer)
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
