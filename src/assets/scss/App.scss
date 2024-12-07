@@ -188,3 +188,21 @@ main {
   color: red;
   padding-top: 40px;
 }
+.score {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .bar {
+    width: 100%;
+    height: 7px;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    .progress {
+      border-radius: inherit;
+      width: 50%;
+      height: 100%;
+      background: #732ebd;
+    }
+  }
+}

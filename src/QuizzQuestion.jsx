@@ -56,7 +56,9 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum })
           {/* <button className='prev'>Prev</button> */}
           <Time />
           {questionNum == 10 ? (
-            <button className='retake'> Take Another Quiz </button>
+            <button className='retake' onClick={() => location.reload()}>
+              Take Another Quiz
+            </button>
           ) : (
             <button className='next' onClick={next} disabled={!selectedOption}>
               Next
