@@ -1,5 +1,6 @@
 import Time from "./Time"
-function QuizzQuestion({ dispatch }) {
+function QuizzQuestion({ dispatch, questions }) {
+  console.log(questions)
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>

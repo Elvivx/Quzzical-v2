@@ -17,7 +17,7 @@ function Quizz() {
         <section>
           <h1 className='title'>Quizzical</h1>
           <section className='quizz-container'>
-            <QuizzQuestion dispatch={dispatch} />
+            <QuizzQuestion questions={questions} dispatch={dispatch} />
           </section>
         </section>
       )}
