@@ -22,14 +22,6 @@ function Quizz() {
               <QuizzQuestion question={question} dispatch={dispatch} key={question.id} />
             ))}
           </section>
-          <section className='nav'>
-            {/* <button className='prev'>Prev</button>
-          <button className='retake hide'> Take Another Quiz </button> */}
-            <Time />
-            <button className='next' onClick={() => dispatch({ type: "next" })}>
-              Next
-            </button>
-          </section>
         </section>
       )}
     </main>

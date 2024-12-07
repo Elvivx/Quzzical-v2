@@ -36,6 +36,14 @@ function QuizzQuestion({ dispatch, question }) {
             </label>
           </button>
         </div>
+        <section className='nav'>
+          {/* <button className='prev'>Prev</button> */}
+          {/* <button className='retake hide'> Take Another Quiz </button>  */}
+          <Time />
+          <button className='next' onClick={() => dispatch({ type: "next" })}>
+            Next
+          </button>
+        </section>
       </section>
     </div>
   )
