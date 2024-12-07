@@ -1,24 +1,25 @@
 import { useState } from "react"
 import Time from "./Time"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum }) {
   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
-  //   dispatch({type: 'ans', payload: ''})
 
   const [selectedOption, setSelectedOption] = useState("")
   console.log(correctAnswer == chosenAnswer)
+
   const next = () => {
-    // console.log(selectedOption, chosenAnswer)
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
     dispatch({ type: "next" })
+    dispatch({ type: "questionNum" })
   }
+
   const getClassName = (option) => {
     if (selectedOption === "") return "" // No class if nothing is selected
-
     return option === correctAnswer ? "correct" : option === selectedOption ? "wrong" : ""
   }
+
   const select = (e) => {
     const selected = e.target.value
     dispatch({ type: "ans", payload: selected })
@@ -26,10 +27,11 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
     e.target.style = "border: 4px solid #c592ff"
     setSelectedOption(selected)
   }
+
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
-        <h2>Question</h2>
+        <h2>Question {questionNum}</h2>
         <div className='score'>
           <div className='bar'>
             <div className='progress'></div>
@@ -52,11 +54,14 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer }) {
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
-          {/* <button className='retake hide'> Take Another Quiz </button>  */}
           <Time />
-          <button className='next' onClick={next} disabled={!selectedOption}>
-            Next
-          </button>
+          {questionNum == 10 ? (
+            <button className='retake'> Take Another Quiz </button>
+          ) : (
+            <button className='next' onClick={next} disabled={!selectedOption}>
+              Next
+            </button>
+          )}
         </section>
       </section>
     </div>

@@ -10,6 +10,7 @@ const initialState = {
   status: "load",
   error: "",
   chosenAnswer: null,
+  questionNum: 1,
   //   answer: "we",
 }
 export const QuizzContext = ({ children }) => {
