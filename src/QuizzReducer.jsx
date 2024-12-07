@@ -6,6 +6,8 @@ export default (state, action) => {
       return { ...state, status: "ready" }
     case "load":
       return { ...state, status: "load" }
+    case "error":
+      return { ...state, status: "error", error: action.payload }
     case "active":
       return { ...state, status: "active" }
     case "next":

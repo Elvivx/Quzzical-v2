@@ -1,4 +1,10 @@
 function Error({ error }) {
-  return <div>{error}</div>
+  console.log(error)
+  return (
+    <div>
+      {error}
+      fuck shit
+    </div>
+  )
 }
 export default Error
