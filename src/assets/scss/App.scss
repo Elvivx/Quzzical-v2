@@ -167,6 +167,16 @@ main {
 .welcome {
   font-size: 1.5rem;
   font-weight: 600;
+  .title {
+    background: linear-gradient(to right, #732ebd, #c698fa);
+    background-clip: text;
+    color: transparent;
+    display: block;
+    font-size: 80px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+  }
   button {
     padding: 10px 20px;
     font-size: 1.3rem;
