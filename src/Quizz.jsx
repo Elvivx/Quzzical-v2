@@ -11,8 +11,11 @@ function Quizz() {
     state: { status, questions, chosenAnswer, currentQuestion, score, error, questionNum, time },
     dispatch,
   } = useContext(Context)
-  //   console.log(status, questions, chosenAnswer, currentQuestion, score, error)
-  //   console.log(chosenAnswer)
+
+  const options = questions[currentQuestion]
+  console.log(options)
+  const option = options ? options[0]?.incorrectAnswers.concat(options[0].correctAnswer).sort(() => Math.random() - 0.5) : []
+  //   console.log(option)
   return (
     <main>
       {status === "ready" && <Welcome />}
@@ -26,7 +29,7 @@ function Quizz() {
               <EndQuizz />
             ) : (
               questions[currentQuestion].map((question) => (
-                <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} questionNum={questionNum} time={time} />
+                <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} questionNum={questionNum} time={time} option={option} />
               ))
             )}
           </section>

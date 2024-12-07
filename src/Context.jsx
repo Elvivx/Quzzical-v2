@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer } from "react"
 import QuizzReducer from "./QuizzReducer"
+import PropTypes from "prop-types"
 import axios from "axios"
 
 export const Context = createContext()
@@ -34,6 +35,5 @@ export const QuizzContext = ({ children }) => {
     state,
     dispatch,
   }
-
   return <Context.Provider value={contextVals}>{children}</Context.Provider>
 }

@@ -1,8 +1,9 @@
 import { useState } from "react"
 import Time from "./Time"
+import PropTypes from "prop-types"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, time }) {
-  const options = question.incorrectAnswers.concat(question.correctAnswer)
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option }) {
+  //   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
 
@@ -46,13 +47,11 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, t
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          {options
-            .sort(() => Math.random() - 0.5)
-            .map((option) => (
-              <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
-                {option}
-              </button>
-            ))}
+          {option.map((option) => (
+            <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
+              {option}
+            </button>
+          ))}
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
@@ -72,3 +71,17 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, t
   )
 }
 export default QuizzQuestion
+QuizzQuestion.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  question: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    question: PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    }).isRequired,
+    correctAnswer: PropTypes.string.isRequired,
+  }).isRequired,
+  score: PropTypes.number.isRequired,
+  chosenAnswer: PropTypes.string,
+  questionNum: PropTypes.number.isRequired,
+  option: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
