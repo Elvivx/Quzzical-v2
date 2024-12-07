@@ -4,10 +4,11 @@ import { Context } from "./Context"
 import Welcome from "./Welcome"
 import Loader from "./Loader"
 import Error from "./Error"
+import EndQuizz from "./EndQuizz"
 
 function Quizz() {
   const {
-    state: { status, questions, chosenAnswer, currentQuestion, score, error, questionNum },
+    state: { status, questions, chosenAnswer, currentQuestion, score, error, questionNum, time },
     dispatch,
   } = useContext(Context)
   //   console.log(status, questions, chosenAnswer, currentQuestion, score, error)
@@ -21,9 +22,13 @@ function Quizz() {
         <section>
           <h1 className='title'>Quizzical</h1>
           <section className='quizz-container'>
-            {questions[currentQuestion].map((question) => (
-              <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} questionNum={questionNum} />
-            ))}
+            {time == 0 ? (
+              <EndQuizz />
+            ) : (
+              questions[currentQuestion].map((question) => (
+                <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} questionNum={questionNum} time={time} />
+              ))
+            )}
           </section>
         </section>
       )}

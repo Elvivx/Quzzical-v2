@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Time from "./Time"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum }) {
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, time }) {
   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
@@ -54,7 +54,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum })
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
-          <Time />
+          <Time time={time} dispatch={dispatch} />
           {questionNum == 10 ? (
             <button className='retake' onClick={() => location.reload()}>
               Take Another Quiz

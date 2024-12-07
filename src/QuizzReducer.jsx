@@ -20,6 +20,8 @@ export default (state, action) => {
       return { ...state, chosenAnswer: action.payload }
     case "questionNum":
       return { ...state, questionNum: state.questionNum + 1 }
+    case "time":
+      return { ...state, time: state.time - action.payload }
     default:
       return state
   }

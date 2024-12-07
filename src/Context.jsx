@@ -11,6 +11,7 @@ const initialState = {
   error: "",
   chosenAnswer: null,
   questionNum: 1,
+  time: 5 * 60,
   //   answer: "we",
 }
 export const QuizzContext = ({ children }) => {
