@@ -7,7 +7,7 @@ function QuizzQuestion({ dispatch, question, score, answer }) {
   //     // dispatch({ type: "SELECT", payload: answer })
   //     e.target.value === answer ? dispatch({ type: "answer" }) value)
   //   }
-  console.log(options)
+  console.log(options, answer)
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
@@ -27,7 +27,7 @@ function QuizzQuestion({ dispatch, question, score, answer }) {
 
         <div className='answers-options'>
           {options.map((option) => (
-            <button className={answer == correctAnswer ? "btn correct" : "btn .wrong"} onClick={(e) => dispatch({ type: "answer", payload: e.target.value })} key={option} value={option}>
+            <button className={` btn ${answer === correctAnswer ? "correct" : ""} `} onClick={(e) => dispatch({ type: "answer", payload: e.target.value })} key={option} value={option}>
               {option}
             </button>
           ))}

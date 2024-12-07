@@ -6,20 +6,21 @@ import Loader from "./Loader"
 
 function Quizz() {
   const {
-    state: { status, questions, answers, currentQuestion, score },
+    state: { status, questions, answer, currentQuestion, score },
     dispatch,
   } = useContext(Context)
-  console.log(status, questions, answers, currentQuestion, score)
+  console.log(status, questions, answer, currentQuestion, score)
   return (
     <main>
       {status === "ready" && <Welcome />}
       {status === "load" && <Loader />}
+      {status === "error" && <Error />}
       {status === "active" && (
         <section>
           <h1 className='title'>Quizzical</h1>
           <section className='quizz-container'>
             {questions[currentQuestion].map((question) => (
-              <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} />
+              <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} answer={answer} />
             ))}
           </section>
         </section>
