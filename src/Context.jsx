@@ -37,3 +37,6 @@ export const QuizzContext = ({ children }) => {
   }
   return <Context.Provider value={contextVals}>{children}</Context.Provider>
 }
+QuizzContext.propTypes = {
+  children: PropTypes.node.isRequired,
+}
