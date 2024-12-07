@@ -3,7 +3,7 @@ import QuizzQuestion from "./QuizzQuestion"
 import { Context } from "./Context"
 import Welcome from "./Welcome"
 import Loader from "./Loader"
-import Time from "./Time"
+
 function Quizz() {
   const {
     state: { status, questions, answers, currentQuestion },

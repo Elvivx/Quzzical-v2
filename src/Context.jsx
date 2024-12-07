@@ -7,6 +7,7 @@ const initialState = {
   questions: [],
   answers: [],
   currentQuestion: 0,
+  score: 0,
   status: "load",
 }
 export const QuizzContext = ({ children }) => {

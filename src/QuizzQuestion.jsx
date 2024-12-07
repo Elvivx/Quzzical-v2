@@ -1,5 +1,12 @@
 import Time from "./Time"
+import { useState } from "react"
 function QuizzQuestion({ dispatch, question }) {
+  const options = question.incorrectAnswers.concat([question.correctAnswer])
+  const answer = question.correctAnswer
+  const select = () => {
+    dispatch({ type: "SELECT", payload: answer })
+  }
+  console.log(options)
   return (
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
@@ -10,30 +17,10 @@ function QuizzQuestion({ dispatch, question }) {
       </section>
       <section className='answers'>
         {/* <!-- div.btns --> */}
+
         <div className='answers-options'>
-          <button className='btn' onClick={() => dispatch({ type: "ans" })}>
+          <button className='btn' onClick={() => dispatch({ type: "ans", payload: e.target.value })}>
             The Truman Show
-          </button>
-
-          <button className='btn'>
-            <input type='radio' name='6.508422101775713' value='The Matrix' id='rad' />
-            <label htmlFor='6.508422101775713' value='The Matrix'>
-              The Matrix
-            </label>
-          </button>
-
-          <button className='btn'>
-            <input type='radio' name='6.508422101775713' value='Indiana Jones and the Last Crusade' id='rad' />
-            <label htmlFor='6.508422101775713' value='Indiana Jones and the Last Crusade'>
-              Indiana Jones and the Last Crusade
-            </label>
-          </button>
-
-          <button className='btn'>
-            <input type='radio' name='6.508422101775713' value='The Batman' id='rad' />
-            <label htmlFor='6.508422101775713' value='The Batman'>
-              The Batman
-            </label>
           </button>
         </div>
         <section className='nav'>
