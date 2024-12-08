@@ -2,18 +2,18 @@ import { useState } from "react"
 import Time from "./Time"
 import PropTypes from "prop-types"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option }) {
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option, progress }) {
   //   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
 
   const [selectedOption, setSelectedOption] = useState("")
-  console.log(correctAnswer == chosenAnswer)
 
   const next = () => {
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
-    dispatch({ type: "next" })
-    dispatch({ type: "questionNum" })
+    questionNum == 10 ? dispatch({ type: "end" }) : dispatch({ type: "next" })
+    // dispatch({ type: "next" })
+    // dispatch({ type: "questionNum" })
   }
 
   const getClassName = (option) => {
@@ -35,7 +35,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
         <h2>Question {questionNum}</h2>
         <div className='score'>
           <div className='bar'>
-            <div className='progress'></div>
+            <div className='progress' style={{ width: `${progress()}%`, transition: "width 0.3s ease" }}></div>
           </div>
           <h3>{score}/10</h3>
         </div>
@@ -56,15 +56,14 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
           <Time />
-          {questionNum == 10 ? (
+          {/* {questionNum == 10 ? (
             <button className='retake' onClick={() => location.reload()}>
               Take Another Quiz
             </button>
-          ) : (
-            <button className='next' onClick={next} disabled={!selectedOption}>
-              Next
-            </button>
-          )}
+          ) : ( */}
+          <button className='next' onClick={next} disabled={!selectedOption}>
+            Next
+          </button>
         </section>
       </section>
     </div>
