@@ -1,8 +1,9 @@
 import { useState } from "react"
-import Time from "./Time"
+import QuizzNav from "./QuizzNav"
+import Buttons from "./Button"
 import PropTypes from "prop-types"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option, progress }) {
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option }) {
   //   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
@@ -14,8 +15,6 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
     dispatch({ type: "next" })
     questionNum == 10 && dispatch({ type: "end" })
     console.log(questionNum)
-    // dispatch({ type: "next" })
-    // dispatch({ type: "questionNum" })
   }
 
   const getClassName = (option) => {
@@ -36,9 +35,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
       <section className='questions'>
         <h2>Question {questionNum}</h2>
         <div className='score'>
-          <div className='bar'>
-            <div className='progress' style={{ width: `${progress()}%`, transition: "width 0.3s ease" }}></div>
-          </div>
+          <div className='bar'>{/* <div className='progress' style={{ width: `${progress()}%`, transition: "width 0.3s ease" }}></div> */}</div>
           <h3>{score}/10</h3>
         </div>
         <div className='question'>
@@ -49,18 +46,20 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          {option.map((option) => (
+          {/* {option.map((option) => (
             <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
               {option}
             </button>
-          ))}
+          ))} */}
+          <Buttons select={select} selectedOption={selectedOption} question={question} option={option} getClassName={getClassName} />
         </div>
-        <section className='nav'>
+        {/* <section className='nav'>
           <Time />
           <button className='next' onClick={next} disabled={!selectedOption}>
             Next
           </button>
-        </section>
+        </section> */}
+        <QuizzNav next={next} selectedOption={selectedOption} />
       </section>
     </div>
   )
