@@ -1,3 +1,4 @@
+import { useLocalStorage } from "./useLocalStorage.js"
 function EndQuizz({ score, currentQuestion, dispatch }) {
   return (
     <div className='end'>
