@@ -22,37 +22,37 @@ function Quizz() {
   }
   return (
     // <Welcome />
-    <Loader />
-    // {/* <main>
-    //   {status === "ready" && <Welcome />}
-    //   {status === "load" && <Loader />}
-    //   {status === "error" && <Error error={error} />}
-    //   {status === "end" && <EndQuizz currentQuestion={currentQuestion} score={score} dispatch={dispatch} />}
-    //   {status === "active" && (
-    //     <section>
-    //       <h1 className='title'>Quizzical</h1>
-    //       <section className='quizz-container'>
-    //         {time == 0 ? (
-    //           <EndQuizz />
-    //         ) : (
-    //           questions[currentQuestion].map((question) => (
-    //             <QuizzQuestion
-    //               question={question}
-    //               dispatch={dispatch}
-    //               key={question.id}
-    //               score={score}
-    //               chosenAnswer={chosenAnswer}
-    //               questionNum={questionNum}
-    //               time={time}
-    //               option={option}
-    //               progress={calculateProgress}
-    //             />
-    //           ))
-    //         )}
-    //       </section>
-    //     </section>
-    //   )}
-    // </main> */}
+    // <Loader />
+    <main>
+      {status === "ready" && <Welcome />}
+      {status === "load" && <Loader />}
+      {status === "error" && <Error error={error} />}
+      {status === "end" && <EndQuizz currentQuestion={currentQuestion} score={score} dispatch={dispatch} />}
+      {status === "active" && (
+        <section>
+          <h1 className='title'>Quizzical</h1>
+          <section className='quizz-container'>
+            {time == 0 ? (
+              <EndQuizz />
+            ) : (
+              questions[currentQuestion].map((question) => (
+                <QuizzQuestion
+                  question={question}
+                  dispatch={dispatch}
+                  key={question.id}
+                  score={score}
+                  chosenAnswer={chosenAnswer}
+                  questionNum={questionNum}
+                  time={time}
+                  option={option}
+                  progress={calculateProgress}
+                />
+              ))
+            )}
+          </section>
+        </section>
+      )}
+    </main>
   )
 }
 export default Quizz

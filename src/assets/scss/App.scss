@@ -16,10 +16,8 @@
   }
 }
 main {
-  width: 100vw !important;
-  height: 100vh !important;
   // background: linear-gradient(to right bottom, rgb(43, 134, 84), rgb(25, 223, 223));
-  display: grid;
+
   .title {
     background: linear-gradient(to right, #732ebd, #c698fa);
     background-clip: text;
