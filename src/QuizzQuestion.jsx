@@ -56,13 +56,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
           ))}
         </div>
         <section className='nav'>
-          {/* <button className='prev'>Prev</button> */}
           <Time />
-          {/* {questionNum == 10 ? (
-            <button className='retake' onClick={() => location.reload()}>
-              Take Another Quiz
-            </button>
-          ) : ( */}
           <button className='next' onClick={next} disabled={!selectedOption}>
             Next
           </button>
