@@ -3,10 +3,8 @@ import Time from "./Timer"
 import Buttons from "./QuizzButtons"
 import PropTypes from "prop-types"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option }) {
-  //   const options = question.incorrectAnswers.concat(question.correctAnswer)
+function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }) {
   const correctAnswer = question.correctAnswer
-  console.log(chosenAnswer)
 
   const [selectedOption, setSelectedOption] = useState("")
 
@@ -14,9 +12,6 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
     dispatch({ type: "next" })
     questionNum == 10 && dispatch({ type: "end" })
-    console.log(questionNum)
-    // dispatch({ type: "next" })
-    // dispatch({ type: "questionNum" })
   }
 
   const getClassName = (option) => {
@@ -50,16 +45,11 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          {/* {option.map((option) => (
-            <button className={`btn ${getClassName(option)}`} onClick={select} key={`${question.id}-${option}`} value={option} disabled={!!selectedOption}>
-              {option}
-            </button>
-          ))} */}
           <Buttons select={select} selectedOption={selectedOption} question={question} option={option} getClassName={getClassName} />
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
-          {/* <Time /> */}
+          <Time />
 
           <button className='next' onClick={next} disabled={!selectedOption}>
             Next
