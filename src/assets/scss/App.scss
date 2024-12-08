@@ -169,6 +169,10 @@ main {
   }
 }
 .load {
+  position: absolute;
+  top: 50%;
+  left: 50;
+  transform: translate(-50%, -50%);
   margin-top: 50px !important;
   border: 6px solid #732ebd;
   border-bottom: 6px solid transparent;
@@ -212,6 +216,10 @@ main {
     border: 0;
     background: #c592ff;
     cursor: pointer;
+    transition: all 0.2 s ease;
+    &:hover {
+      box-shadow: 0 0 10px 2px #732ebd;
+    }
   }
   @media (max-width: 768px) {
     .title {
@@ -219,6 +227,25 @@ main {
     }
     p {
       font-size: 1.2rem;
+    }
+  }
+}
+.error,
+.end {
+  button {
+    transition: all 0.2s ease-in-out;
+    padding: 10px 30px;
+    border: 2px solid #15e6c3;
+    border-radius: 5px;
+    color: #009d82;
+    background: 0;
+    font-size: 1.3rem;
+    margin-left: auto;
+    &:hover {
+      background: #009d82;
+      color: #d3f6ec;
+      border-color: white;
+      box-shadow: 0 0 10px 2px #009d82;
     }
   }
 }

@@ -1,7 +1,11 @@
+import { useEffect } from "react"
 import useLocalStorage from "../Helper/useLocalStorage"
+import PropTypes from "prop-types"
 function EndQuizz({ score, currentQuestion, dispatch }) {
   const [data, setData] = useLocalStorage("highScore", score)
-  // setData(score)
+  useEffect(() => {
+    setData(score)
+  }, [])
   return (
     <div className='end'>
       <h1>Quiz Finished!</h1>
@@ -18,3 +22,8 @@ function EndQuizz({ score, currentQuestion, dispatch }) {
   )
 }
 export default EndQuizz
+EndQuizz.propTypes = {
+  score: PropTypes.number.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  dispatch: PropTypes.func,
+}

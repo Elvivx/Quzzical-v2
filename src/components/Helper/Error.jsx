@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 function Error({ error }) {
   console.log(error)
   return (
@@ -16,3 +17,6 @@ function Error({ error }) {
   )
 }
 export default Error
+Error.propTypes = {
+  error: PropTypes.string,
+}
