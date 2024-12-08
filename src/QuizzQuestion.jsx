@@ -11,7 +11,9 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
 
   const next = () => {
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
-    questionNum == 10 ? dispatch({ type: "end" }) : dispatch({ type: "next" })
+    dispatch({ type: "next" })
+    questionNum == 10 && dispatch({ type: "end" })
+    console.log(questionNum)
     // dispatch({ type: "next" })
     // dispatch({ type: "questionNum" })
   }

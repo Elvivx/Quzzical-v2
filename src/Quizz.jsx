@@ -24,7 +24,7 @@ function Quizz() {
       {status === "ready" && <Welcome />}
       {status === "load" && <Loader />}
       {status === "error" && <Error error={error} />}
-      {status === "end" && <EndQuizz />}
+      {status === "end" && <EndQuizz currentQuestion={currentQuestion} score={score} />}
       {status === "active" && (
         <section>
           <h1 className='title'>Quizzical</h1>
