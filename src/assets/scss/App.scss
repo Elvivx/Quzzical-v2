@@ -185,6 +185,14 @@ main {
   font-weight: 600;
   color: red;
   padding-top: 40px;
+  svg {
+    width: 70px;
+    height: 70px;
+    animation: load 4s infinite linear reverse;
+  }
+  button {
+    padding: 10px;
+  }
 }
 .score {
   border: 2px solid red;
