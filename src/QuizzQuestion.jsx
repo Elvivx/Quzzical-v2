@@ -3,7 +3,7 @@ import Time from "./Time"
 import Buttons from "./Button"
 import PropTypes from "prop-types"
 
-function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option, progress }) {
+function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, option }) {
   //   const options = question.incorrectAnswers.concat(question.correctAnswer)
   const correctAnswer = question.correctAnswer
   console.log(chosenAnswer)
@@ -59,7 +59,7 @@ function QuizzQuestion({ dispatch, question, score, chosenAnswer, questionNum, o
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
-          <Time />
+          {/* <Time /> */}
 
           <button className='next' onClick={next} disabled={!selectedOption}>
             Next
