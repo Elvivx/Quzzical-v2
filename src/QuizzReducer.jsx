@@ -22,6 +22,8 @@ export default (state, action) => {
       return { ...state, time: state.time - action.payload }
     case "end":
       return { ...state, status: "end" }
+    case "retake":
+      return location.reload()
     default:
       return state
   }

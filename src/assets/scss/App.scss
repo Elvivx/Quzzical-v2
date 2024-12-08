@@ -7,7 +7,6 @@ main {
   height: 100vh !important;
   background: linear-gradient(to right bottom, rgb(43, 134, 84), rgb(25, 223, 223));
   display: grid;
-  // place-items: center;
   .title {
     background: linear-gradient(to right, #732ebd, #c698fa);
     background-clip: text;
@@ -52,9 +51,6 @@ main {
           font-weight: 800;
           margin: 0;
         }
-        .question {
-          // ejector
-        }
       }
       .answers {
         width: 100%;
@@ -82,13 +78,14 @@ main {
             border: 4px solid transparent;
 
             &:hover {
-              border: 4px solid #c592ff;
+              border: 4px solid #b478f8;
               background: 0;
               transform: scale(1.01) skew(-10deg);
             }
           }
           .sel {
-            border: 2px solid #c592ff;
+            border: 2px solid #ad69fc;
+            background: #036e5c;
           }
         }
         .nav {
@@ -204,6 +201,19 @@ main {
       width: 50%;
       height: 100%;
       background: #732ebd;
+    }
+  }
+}
+.end {
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    span {
+      font-size: 1.8rem;
+      font-weight: 800;
     }
   }
 }
