@@ -5,6 +5,11 @@ function EndQuizz({ score, currentQuestion }) {
       <p>
         Your final score is {score} out of {currentQuestion}
       </p>
+      <p>
+        {score >= 7 && "😎😏You're Fantastic"}
+        {score >= 4 ? "🙂😊You have a Good Result" : "😔😢You had a poor result"}
+      </p>
+      <button onClick={() => dispatchEvent({ type: "load" })}>Take Another Quizz</button>
     </div>
   )
 }
