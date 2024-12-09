@@ -7,7 +7,7 @@ function Time() {
 
   useEffect(() => {
     // Exit early if the timer has finished
-    // if (timeLeft <= 0) dispatch({ type: "time", payload: timeLeft })
+    if (timeLeft <= 0) dispatch({ type: "time", payload: timeLeft })
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1)
