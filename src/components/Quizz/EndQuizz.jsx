@@ -2,8 +2,9 @@ import { useEffect } from "react"
 import useLocalStorage from "../Helper/useLocalStorage"
 import PropTypes from "prop-types"
 function EndQuizz({ score, currentQuestion, dispatch }) {
-  const [data, setData] = useLocalStorage("highScore", score)
+  const [data, setData] = useLocalStorage("highScore")
   useEffect(() => {
+    if (data > score) return
     setData(score)
   }, [])
   return (
