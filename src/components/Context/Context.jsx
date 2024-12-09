@@ -12,7 +12,7 @@ const initialState = {
   error: "",
   chosenAnswer: null,
   questionNum: 1,
-  time: 5 * 60,
+  time: null,
   //   answer: "we",
 }
 export const QuizzContext = ({ children }) => {
@@ -22,6 +22,7 @@ export const QuizzContext = ({ children }) => {
       try {
         const data = await axios.get("https://the-trivia-api.com/v2/questions")
         const quest = data.data.map((ques) => [ques])
+        console.log(data)
         dispatch({ type: "data", payload: quest })
       } catch (error) {
         console.log(error.message)

@@ -10,7 +10,7 @@ function EndQuizz({ score, currentQuestion, dispatch }) {
     <div className='end'>
       <h1>Quiz Finished!</h1>
       <p>
-        Your final score is <span>{score}</span> out of <span>{currentQuestion} </span>
+        Your final score is <span>{score || "0"}</span> out of <span>{currentQuestion || "0"} </span>questions answered
       </p>
       <p>
         {score >= 7 && "😎😏You're Fantastic"}

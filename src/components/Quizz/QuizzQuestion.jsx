@@ -5,7 +5,6 @@ import PropTypes from "prop-types"
 
 function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }) {
   const correctAnswer = question.correctAnswer
-
   const [selectedOption, setSelectedOption] = useState("")
 
   const next = () => {
@@ -21,8 +20,8 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
 
   const select = (e) => {
     const selected = e.target.value
+    // dispatch({ type: "ans", payload: "" })
     dispatch({ type: "ans", payload: selected })
-
     e.target.style = "border: 4px solid #c592ff"
     setSelectedOption(selected)
   }
@@ -31,12 +30,7 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
     <div className='quiz ' data-indexs='1'>
       <section className='questions'>
         <h2>Question {questionNum}</h2>
-        {/* <div className='score'>
-          <div className='bar'>
-            <div className='progress' style={{ width: `${progress()}%`, transition: "width 0.3s ease" }}></div>
-          </div>
-          <h3>{score}/10</h3>
-        </div> */}
+
         <div className='question'>
           <p>{question.question.text}</p>
         </div>

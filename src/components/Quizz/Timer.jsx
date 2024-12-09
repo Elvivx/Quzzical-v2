@@ -1,23 +1,21 @@
-import { useState, useEffect, useContext, useRef } from "react"
+import { useState, useEffect, useContext } from "react"
 
-// import { Context } from "./Context"
+import { Context } from "../Context/Context"
 // import { preview } from "vite"
 // import EndQuizz from "./EndQuizz"
 function Time() {
-  // const { dispatch } = useContext(Context)
+  const { dispatch } = useContext(Context)
 
-  // console.log(time)
+  // console.log(secs)
   const [timeLeft, setTimeLeft] = useState(1 * 60) // 5 minutes in seconds
-  const time = useRef("")
 
   useEffect(() => {
     // Exit early if the timer has finished
-    if (timeLeft <= 0) return
+    if (timeLeft <= 0) dispatch({ type: "time", payload: timeLeft })
 
     // Set an interval to decrease the time
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1)
-      time.current = timeLeft
       // timeLeft == 0 && dispatch({ type: "end" })
       // dispatch({ type: "time", payload: 1 })
     }, 1000)
