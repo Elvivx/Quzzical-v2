@@ -1,11 +1,9 @@
-// import { useState } from "react"
 import Time from "./Timer"
 import Buttons from "./QuizzButtons"
 import PropTypes from "prop-types"
 
 function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }) {
   const correctAnswer = question.correctAnswer
-  // const [selectedOption, setSelectedOption] = useState("")
 
   const next = () => {
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
@@ -23,7 +21,6 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
     const selected = e.target.value
     dispatch({ type: "ans", payload: selected })
     e.target.style = "border: 4px solid #c592ff"
-    // setSelectedOption(selected)
   }
 
   return (
@@ -42,7 +39,6 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
           <Buttons select={select} selectedOption={chosenAnswer} question={question} option={option} getClassName={getClassName} />
         </div>
         <section className='nav'>
-          {/* <button className='prev'>Prev</button> */}
           <Time />
 
           <button className='next' onClick={next} disabled={!chosenAnswer}>

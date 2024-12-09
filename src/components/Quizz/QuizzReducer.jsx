@@ -16,9 +16,6 @@ export default function reducer(state, action) {
       return { ...state, score: state.score + 1 }
     case "ans":
       return { ...state, chosenAnswer: action.payload }
-
-    // case "questionNum":
-    //   return { ...state, questionNum: state.questionNum + 1 }
     case "time":
       return { ...state, time: action.payload }
     case "end":

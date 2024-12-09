@@ -13,7 +13,6 @@ const initialState = {
   chosenAnswer: "",
   questionNum: 1,
   time: null,
-  //   answer: "we",
 }
 export const QuizzContext = ({ children }) => {
   const [state, dispatch] = useReducer(QuizzReducer, initialState)
@@ -21,11 +20,10 @@ export const QuizzContext = ({ children }) => {
     const get = async () => {
       try {
         const data = await axios.get("https://the-trivia-api.com/v2/questions")
+        //put each object in an array in an array
         const quest = data.data.map((ques) => [ques])
-        console.log(data)
         dispatch({ type: "data", payload: quest })
       } catch (error) {
-        console.log(error.message)
         dispatch({ type: "error", payload: error.message })
       }
     }

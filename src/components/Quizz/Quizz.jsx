@@ -1,12 +1,10 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import QuizzQuestion from "./QuizzQuestion"
-
 import { Context } from "../Context/Context"
 import Welcome from "../Pages/Welcome"
 import Loader from "../Helper/Loader"
 import Error from "../Helper/Error"
 import EndQuizz from "./EndQuizz"
-// import Time from "./Timer"
 
 function Quizz() {
   const {
@@ -16,16 +14,8 @@ function Quizz() {
 
   const options = questions[currentQuestion]
   const option = options ? options[0]?.incorrectAnswers.concat(options[0].correctAnswer).sort(() => Math.random() - 0.5) : []
-  console.log(option)
-  console.log(questions)
 
-  const calculateProgress = () => {
-    return ((questionNum - 1) / questions.length - 1) * 100
-  }
-  console.log(time)
   return (
-    // <Welcome />
-    // <Loader />
     <main>
       {status === "ready" && <Welcome />}
       {status === "load" && <Loader />}
@@ -40,27 +30,11 @@ function Quizz() {
                 <EndQuizz dispatch={dispatch} />
               ) : (
                 questions[currentQuestion].map((question) => (
-                  <QuizzQuestion
-                    question={question}
-                    dispatch={dispatch}
-                    key={question.id}
-                    score={score}
-                    chosenAnswer={chosenAnswer}
-                    questionNum={questionNum}
-                    time={time}
-                    option={option}
-                    progress={calculateProgress}
-                  />
+                  <QuizzQuestion question={question} dispatch={dispatch} key={question.id} score={score} chosenAnswer={chosenAnswer} questionNum={questionNum} time={time} option={option} />
                 ))
               )}
             </section>
           </section>
-          {/* <section className='nav'>
-            <Time />
-            <button className='next' onClick={next}>
-              Next
-            </button>
-          </section> */}
         </>
       )}
     </main>
