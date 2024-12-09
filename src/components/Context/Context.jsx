@@ -10,7 +10,7 @@ const initialState = {
   score: 0,
   status: "load",
   error: "",
-  chosenAnswer: null,
+  chosenAnswer: "",
   questionNum: 1,
   time: null,
   //   answer: "we",

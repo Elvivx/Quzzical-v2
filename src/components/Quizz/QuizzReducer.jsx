@@ -11,7 +11,7 @@ export default function reducer(state, action) {
     case "active":
       return { ...state, status: "active" }
     case "next":
-      return { ...state, currentQuestion: state.currentQuestion + 1, questionNum: state.questionNum + 1 }
+      return { ...state, currentQuestion: state.currentQuestion + 1, questionNum: state.questionNum + 1, chosenAnswer: "" }
     case "score":
       return { ...state, score: state.score + 1 }
     case "ans":

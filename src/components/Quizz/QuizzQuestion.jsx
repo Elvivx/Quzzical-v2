@@ -1,11 +1,11 @@
-import { useState } from "react"
+// import { useState } from "react"
 import Time from "./Timer"
 import Buttons from "./QuizzButtons"
 import PropTypes from "prop-types"
 
 function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }) {
   const correctAnswer = question.correctAnswer
-  const [selectedOption, setSelectedOption] = useState("")
+  // const [selectedOption, setSelectedOption] = useState("")
 
   const next = () => {
     correctAnswer == chosenAnswer && dispatch({ type: "score" })
@@ -14,16 +14,16 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
   }
 
   const getClassName = (option) => {
-    if (selectedOption === "") return "" // No class if nothing is selected
-    return option === correctAnswer ? "correct" : option === selectedOption ? "wrong" : ""
+    console.log(chosenAnswer)
+    if (chosenAnswer == "") return "" // No class if nothing is selected
+    return option === correctAnswer ? "correct" : option === chosenAnswer ? "wrong" : ""
   }
 
   const select = (e) => {
     const selected = e.target.value
-    // dispatch({ type: "ans", payload: "" })
     dispatch({ type: "ans", payload: selected })
     e.target.style = "border: 4px solid #c592ff"
-    setSelectedOption(selected)
+    // setSelectedOption(selected)
   }
 
   return (
@@ -39,13 +39,13 @@ function QuizzQuestion({ dispatch, question, chosenAnswer, questionNum, option }
         {/* <!-- div.btns --> */}
 
         <div className='answers-options'>
-          <Buttons select={select} selectedOption={selectedOption} question={question} option={option} getClassName={getClassName} />
+          <Buttons select={select} selectedOption={chosenAnswer} question={question} option={option} getClassName={getClassName} />
         </div>
         <section className='nav'>
           {/* <button className='prev'>Prev</button> */}
           <Time />
 
-          <button className='next' onClick={next} disabled={!selectedOption}>
+          <button className='next' onClick={next} disabled={!chosenAnswer}>
             Next
           </button>
         </section>

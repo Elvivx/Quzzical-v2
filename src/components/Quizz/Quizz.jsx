@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import QuizzQuestion from "./QuizzQuestion"
 
 import { Context } from "../Context/Context"
@@ -15,8 +15,9 @@ function Quizz() {
   } = useContext(Context)
 
   const options = questions[currentQuestion]
-
   const option = options ? options[0]?.incorrectAnswers.concat(options[0].correctAnswer).sort(() => Math.random() - 0.5) : []
+  console.log(option)
+  console.log(questions)
 
   const calculateProgress = () => {
     return ((questionNum - 1) / questions.length - 1) * 100
@@ -36,7 +37,7 @@ function Quizz() {
             <h1 className='title'>Quizzical</h1>
             <section className='quizz-container'>
               {time == 0 ? (
-                <EndQuizz />
+                <EndQuizz dispatch={dispatch} />
               ) : (
                 questions[currentQuestion].map((question) => (
                   <QuizzQuestion
