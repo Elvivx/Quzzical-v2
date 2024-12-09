@@ -17,7 +17,7 @@ function EndQuizz({ score, currentQuestion, dispatch }) {
         {score >= 7 && "😎😏You're Fantastic"}
         {score >= 4 ? "🙂😊You have a Good Result" : "😔😢You had a poor result"}
       </p>
-      <p>HighScore: {data > score ? data : score}</p>
+      <p>HighScore: {data > score ? data : score}/10</p>
       <button onClick={() => dispatch({ type: "retake" })}>Take Another Quizz</button>
     </div>
   )
