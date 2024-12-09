@@ -49,7 +49,6 @@ main {
         padding: 20px;
         width: 100%;
         text-align: center;
-        // background: #009d82;
         h2 {
           background: linear-gradient(to right, #d7baf7, #c592ff);
           background-clip: text;
@@ -78,8 +77,9 @@ main {
 
           .btn {
             text-align: justify;
-            background: #74dde2;
-            color: #000;
+            background: linear-gradient(to left, #009d82, #732ebd);
+            background-repeat: no-repeat;
+            color: #fff;
             width: 100%;
             border-radius: 20px;
             padding: 10px;
@@ -87,6 +87,7 @@ main {
             transition: all 0.2s ease-in-out;
             font-size: 1.3rem;
             border: 4px solid transparent;
+            cursor: pointer;
 
             &:hover {
               border: 4px solid #b478f8;
@@ -102,8 +103,6 @@ main {
         .nav {
           margin-top: 20%;
           display: flex;
-          // justify-content: space-between;
-
           width: 100%;
           .time {
             border: 2px solid white;
@@ -136,11 +135,13 @@ main {
     }
     .correct {
       color: rgb(31, 195, 31) !important;
-      font-size: 21px !important;
+      font-size: 1.5rem !important;
       font-weight: 800;
     }
     .wrong {
-      color: red !important;
+      color: rgb(247, 58, 58) !important;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
   }
   @media (max-width: 600px) {
